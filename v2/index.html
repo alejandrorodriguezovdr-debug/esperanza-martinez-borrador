@@ -416,6 +416,15 @@
   /* Phone: the KW | Eagle Realty lockup already lives in the footer, keep the hero lean */
   @media (max-width:959px){ .hero .brand{display:none} .hero .tagline{margin-top:16px} }
 
+
+  /* Designer credit */
+  .credit{margin-top:22px;padding-top:16px;border-top:1px solid var(--hair-2);text-align:center}
+  .credit a{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid transparent;
+    font:400 11px/1 var(--sans);letter-spacing:.06em;color:var(--mist);opacity:.8;transition:opacity .4s,color .4s,border-color .4s}
+  .credit a svg{width:14px;height:14px}
+  .credit a b{font-weight:600;color:var(--acc-2);letter-spacing:.02em}
+  .credit a:hover{opacity:1;color:var(--ink);border-color:var(--hair)}
+
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     .curtain{display:none}
@@ -574,6 +583,12 @@
           <a href="tel:+17547799567">754-779-9567</a> &nbsp;·&nbsp; <a href="mailto:esperanzamartinez@me.com">esperanzamartinez@me.com</a></p>
         </div>
         <p class="legal">© <span id="yr">2026</span> Esperanza Martinez · Realtor®</p>
+      </div>
+      <div class="credit">
+        <a href="https://www.instagram.com/realgrowth.pro/" target="_blank" rel="noopener" aria-label="Website by @realgrowth.pro on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span data-en="Website by" data-es="Diseño web por">Website by</span> <b>@realgrowth.pro</b>
+        </a>
       </div>
     </footer>
   </section>
