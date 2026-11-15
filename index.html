@@ -414,10 +414,10 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="M22 6l-10 7L2 6"/></svg>
               <span>Email</span>
             </a>
-            <button class="cbtn" id="vcard" type="button">
+            <a class="cbtn" id="vcard" href="assets/esperanza-martinez.vcf" type="text/vcard">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
               <span data-en="Save contact" data-es="Guardar">Save contact</span>
-            </button>
+            </a>
           </nav>
 
           <div class="follow fu" style="--dl:1.4s">
@@ -614,18 +614,13 @@
     } catch(e){}
   });
 
-  /* ---------- Save contact (vCard) ---------- */
+  /* ---------- Save contact ----------
+     Plain link to a static .vcf: iPhone Safari opens the native contact card ("Create New Contact"),
+     Android opens Contacts, desktop downloads it. Instagram/Facebook in-app browsers may block it,
+     so there we also show how to open the page in the real browser. */
   $('#vcard').addEventListener('click', () => {
-    const v = ['BEGIN:VCARD','VERSION:3.0','N:Martinez;Esperanza;;;','FN:Esperanza Martinez',
-      'ORG:Keller Williams Eagle Realty','TITLE:Realtor®','TEL;TYPE=CELL,VOICE:+1 754-779-9567',
-      'EMAIL;TYPE=INTERNET:esperanzamartinez@me.com','URL:https://www.esperanzamartinezmiami.com/',
-      'ADR;TYPE=WORK:;;700 N.E. 90 Street;Miami;FL;33138;USA',
-      'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/esperanzamartinezrealtor/','END:VCARD'].join('\r\n');
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([v], {type:'text/vcard'}));
-    a.download = 'Esperanza-Martinez.vcf';
-    document.body.appendChild(a); a.click(); a.remove();
-    toast(lang === 'es' ? 'Contacto listo para guardar' : 'Contact ready to save');
+    if (/Instagram|FBAN|FBAV|FB_IAB|Line\//i.test(navigator.userAgent))
+      setTimeout(() => toast(lang === 'es' ? 'Si no se abre: toca ••• y “Abrir en el navegador”' : 'If nothing opens: tap ••• then “Open in browser”'), 400);
   });
 })();
 </script>
